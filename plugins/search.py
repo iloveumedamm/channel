@@ -42,7 +42,7 @@ async def search(bot, message):
        pass
 
 
-@Client.on_message(filters.private & filters.text & filters.incoming))
+@Client.on_message(filters.private & filters.text & filters.incoming)
 async def pmsearch(bot, message):
     
     SEARCH_CHANNELS = -1001615768866 
