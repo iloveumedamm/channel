@@ -6,3 +6,4 @@ DATABASE_URI = "mongodb+srv://phrfle:J002aX0MIgNhuNti@cluster0.rm9eeci.mongodb.n
 LOG_CHANNEL  = -1001580119861
 ADMIN        = 1221342499
 CHANNEL      = "@film4movieee"
+SEARCH_CHANNEL = -1001615768866
