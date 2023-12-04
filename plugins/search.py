@@ -44,9 +44,7 @@ async def search(bot, message):
 
 @Client.on_message(filters.private & filters.text & filters.incoming & ~filters.command(["verify", "connect", "id", "start", "help"]))
 async def pmsearch(bot, message):
-    f_sub = await force_sub(bot, message)
-    if f_sub==False:
-       return     
+    
     channels = SEARCH_CHANNEL
     if bool(channels)==False:
        return     
