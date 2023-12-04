@@ -42,24 +42,22 @@ async def search(bot, message):
        pass
 
 
-@Client.on_message(filters.private & filters.text & filters.incoming & ~filters.command(["verify", "connect", "id", "start", "help"]))
+@Client.on_message(filters.private & filters.text & filters.incoming))
 async def pmsearch(bot, message):
     
-    channels = SEARCH_CHANNEL
-    if bool(channels)==False:
-       return     
+    SEARCH_CHANNELS = -1001615768866 
     if message.text.startswith("/"):
        return    
     query   = message.text 
     head    = "<u>Here is the results 👇\n\nPromoted By </u> <b><I>@Film4Mobi_Search_bot</I></b>\n\n"
     results = ""
     try:
-       for channel in channels:
-           async for msg in User.search_messages(chat_id=channel, query=query):
-               name = (msg.text or msg.caption).split("\n")[0]
-               if name in results:
-                  continue 
-               results += f"<b><I>♻️ {name}\n🔗 {msg.link}</I></b>\n\n"                                                      
+       
+       async for msg in User.search_messages(chat_id=SEARCH_CHANNELS, query=query):
+           name = (msg.text or msg.caption).split("\n")[0]
+           if name in results:
+              continue 
+           results += f"<b><I>♻️ {name}\n🔗 {msg.link}</I></b>\n\n"                                                      
        if bool(results)==False:
           movies = await search_imdb(query)
           buttons = []
